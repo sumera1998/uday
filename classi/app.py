@@ -10,7 +10,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/results/<data>/<data1>')
+@app.route('/result/<data>/<data1>')
 def results(data,data1):
     text_to_classify = data
     level = int(data1)
