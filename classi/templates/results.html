@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div id="div4">
+        <p>{{ text_to_classify }}</p>
+        <ul>
+            {% for label in pred %}
+                <li><a href="#">{{ label.upper() }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

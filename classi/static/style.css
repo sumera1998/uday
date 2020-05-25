@@ -1,0 +1,732 @@
+@charset "UTF-8";
+html, body { background-color: #49a7c7; height: 100%; padding: 0; margin: 0; }
+#div1 {
+    background: #4d648d ;
+    width: 100%;
+    height: 10%;
+    float: left;
+}
+
+#div2 {
+    background: #49a7c7;
+    width: 100%;
+    height: 25%;
+    float: left;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#div3 {
+  background-color: #49a7c7;
+  width: 100%;
+  height: 25%;
+  float: left;
+}
+
+#div4 { background: #a4d3e3;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40%;
+    float: left;
+}
+
+#home_icon {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+
+#title_text {
+    position: relative;
+    height: 100%;
+    width: 60%;
+    float: left;
+}
+
+#youtube_icon {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+
+#div4 p {
+    font-family: Verdana, monospace;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.modal_title {
+    color: #fef7ec;
+    /*color: #fce9db;*/
+    font-size: 45px;
+    font-family: Aileron, monospace;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.logo {
+  display: block;
+  text-indent: -9999px;
+  width: 100px;
+  height: 82px;
+  background: url(home-roof.svg);
+  background-size: 100px 82px;
+    float: left;
+}
+
+.logo_you {
+  display: block;
+  text-indent: -9999px;
+  width: 100px;
+  height: 82px;
+  background: url(youtube.svg);
+  background-size: 100px 82px;
+    margin-right: 0;
+    float: right;
+}
+
+@font-face {
+    font-family: Aileron;
+    src: url("Aileron-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: "Da Streets";
+    src: url("Panicstricken-8zgD.ttf") format("truetype");
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+    text-align: center;
+    padding-bottom: 30px;
+    font-family: "Da Streets", monospace;
+    font-size: 25px;
+}
+
+
+li a {
+  text-decoration: none;
+  color: #1e3459;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
+  width: 200px;
+}
+
+li a:hover {
+  font-size: 30px;
+}
+
+*:focus {
+  outline: none;
+}
+
+.wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.form-wrap {
+  position: relative;
+  height: 50px;
+  width: 400px;
+  margin: 100px auto 0;
+}
+
+input {
+  color: #fff;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  padding-top: 5px;
+  border: none;
+  border-left: 300px;
+  font-size: 1.2em;
+  font-weight: 200;
+  background: none;
+  opacity: 0;
+  font-family: 'Roboto Mono', monospace;
+  transition: all 0.5s ease;
+}
+
+.active input {
+  opacity: 1;
+  transition: all 0.5s ease 0.5s;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  overflow: visible;
+  fill: none;
+  z-index: 5;
+  stroke: #fff;
+  stroke-width: 3px;
+}
+
+label {
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  font-size: 1.3em;
+  transition: all 0.5s ease;
+}
+
+.active label {
+  top: 0px;
+  font-size: 0.8em;
+  color: #1e3459;
+  transition: all 0.5s ease 0.6s;
+}
+
+.active + svg {
+  stroke: #1e3459;
+  transition: stroke 0.4s ease 0.6s;
+}
+
+.input {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.input:before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 3px;
+  right: 15px;
+  bottom: -50px;
+  background-color: transparent;
+  -webkit-transform-origin: inherit;
+          transform-origin: inherit;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: transform 0.4s ease, bottom 0.4s ease 0.3s, background-color 0.2s ease 0.6s;
+}
+
+.input:after {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 3px;
+  right: 15px;
+  bottom: -50px;
+  visibility: hidden;
+  background-color: transparent;
+  -webkit-transform-origin: inherit;
+          transform-origin: inherit;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: transform 0.4s ease, visibility 0.4s ease, bottom 0.4s ease 0.3s, background-color 0.2s ease 0.6s, height 0.2s ease 0.6s;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+    background-color: #1e3459;
+    border: none;
+    line-height: 60px;
+    width: 200px;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+    letter-spacing: 5px;
+    font-size: 20px;
+    box-shadow: 0 18px 25px rgba(30, 52, 89, 0.5);
+    transition: all 0.5s;
+    text-transform: uppercase;
+    font-family: 'Roboto', monospace;
+}
+
+.hoverable:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+button:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+  -webkit-transform-origin: 35px 35px;
+          transform-origin: 35px 35px;
+  opacity: 0;
+  transition: opacity 0.3s 0.2s;
+}
+button.loading {
+  width: 60px;
+  border-radius: 50%;
+  letter-spacing: 2px;
+}
+button.loading:after {
+  opacity: 1;
+}
+button.percent-1:after {
+  -webkit-transform: rotate(48.6deg);
+          transform: rotate(48.6deg);
+}
+button.percent-2:after {
+  -webkit-transform: rotate(52.2deg);
+          transform: rotate(52.2deg);
+}
+button.percent-3:after {
+  -webkit-transform: rotate(55.8deg);
+          transform: rotate(55.8deg);
+}
+button.percent-4:after {
+  -webkit-transform: rotate(59.4deg);
+          transform: rotate(59.4deg);
+}
+button.percent-5:after {
+  -webkit-transform: rotate(63deg);
+          transform: rotate(63deg);
+}
+button.percent-6:after {
+  -webkit-transform: rotate(66.6deg);
+          transform: rotate(66.6deg);
+}
+button.percent-7:after {
+  -webkit-transform: rotate(70.2deg);
+          transform: rotate(70.2deg);
+}
+button.percent-8:after {
+  -webkit-transform: rotate(73.8deg);
+          transform: rotate(73.8deg);
+}
+button.percent-9:after {
+  -webkit-transform: rotate(77.4deg);
+          transform: rotate(77.4deg);
+}
+button.percent-10:after {
+  -webkit-transform: rotate(81deg);
+          transform: rotate(81deg);
+}
+button.percent-11:after {
+  -webkit-transform: rotate(84.6deg);
+          transform: rotate(84.6deg);
+}
+button.percent-12:after {
+  -webkit-transform: rotate(88.2deg);
+          transform: rotate(88.2deg);
+}
+button.percent-13:after {
+  -webkit-transform: rotate(91.8deg);
+          transform: rotate(91.8deg);
+}
+button.percent-14:after {
+  -webkit-transform: rotate(95.4deg);
+          transform: rotate(95.4deg);
+}
+button.percent-15:after {
+  -webkit-transform: rotate(99deg);
+          transform: rotate(99deg);
+}
+button.percent-16:after {
+  -webkit-transform: rotate(102.6deg);
+          transform: rotate(102.6deg);
+}
+button.percent-17:after {
+  -webkit-transform: rotate(106.2deg);
+          transform: rotate(106.2deg);
+}
+button.percent-18:after {
+  -webkit-transform: rotate(109.8deg);
+          transform: rotate(109.8deg);
+}
+button.percent-19:after {
+  -webkit-transform: rotate(113.4deg);
+          transform: rotate(113.4deg);
+}
+button.percent-20:after {
+  -webkit-transform: rotate(117deg);
+          transform: rotate(117deg);
+}
+button.percent-21:after {
+  -webkit-transform: rotate(120.6deg);
+          transform: rotate(120.6deg);
+}
+button.percent-22:after {
+  -webkit-transform: rotate(124.2deg);
+          transform: rotate(124.2deg);
+}
+button.percent-23:after {
+  -webkit-transform: rotate(127.8deg);
+          transform: rotate(127.8deg);
+}
+button.percent-24:after {
+  -webkit-transform: rotate(131.4deg);
+          transform: rotate(131.4deg);
+}
+button.percent-25:after {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+button.percent-26:after {
+  -webkit-transform: rotate(138.6deg);
+          transform: rotate(138.6deg);
+}
+button.percent-27:after {
+  -webkit-transform: rotate(142.2deg);
+          transform: rotate(142.2deg);
+}
+button.percent-28:after {
+  -webkit-transform: rotate(145.8deg);
+          transform: rotate(145.8deg);
+}
+button.percent-29:after {
+  -webkit-transform: rotate(149.4deg);
+          transform: rotate(149.4deg);
+}
+button.percent-30:after {
+  -webkit-transform: rotate(153deg);
+          transform: rotate(153deg);
+}
+button.percent-31:after {
+  -webkit-transform: rotate(156.6deg);
+          transform: rotate(156.6deg);
+}
+button.percent-32:after {
+  -webkit-transform: rotate(160.2deg);
+          transform: rotate(160.2deg);
+}
+button.percent-33:after {
+  -webkit-transform: rotate(163.8deg);
+          transform: rotate(163.8deg);
+}
+button.percent-34:after {
+  -webkit-transform: rotate(167.4deg);
+          transform: rotate(167.4deg);
+}
+button.percent-35:after {
+  -webkit-transform: rotate(171deg);
+          transform: rotate(171deg);
+}
+button.percent-36:after {
+  -webkit-transform: rotate(174.6deg);
+          transform: rotate(174.6deg);
+}
+button.percent-37:after {
+  -webkit-transform: rotate(178.2deg);
+          transform: rotate(178.2deg);
+}
+button.percent-38:after {
+  -webkit-transform: rotate(181.8deg);
+          transform: rotate(181.8deg);
+}
+button.percent-39:after {
+  -webkit-transform: rotate(185.4deg);
+          transform: rotate(185.4deg);
+}
+button.percent-40:after {
+  -webkit-transform: rotate(189deg);
+          transform: rotate(189deg);
+}
+button.percent-41:after {
+  -webkit-transform: rotate(192.6deg);
+          transform: rotate(192.6deg);
+}
+button.percent-42:after {
+  -webkit-transform: rotate(196.2deg);
+          transform: rotate(196.2deg);
+}
+button.percent-43:after {
+  -webkit-transform: rotate(199.8deg);
+          transform: rotate(199.8deg);
+}
+button.percent-44:after {
+  -webkit-transform: rotate(203.4deg);
+          transform: rotate(203.4deg);
+}
+button.percent-45:after {
+  -webkit-transform: rotate(207deg);
+          transform: rotate(207deg);
+}
+button.percent-46:after {
+  -webkit-transform: rotate(210.6deg);
+          transform: rotate(210.6deg);
+}
+button.percent-47:after {
+  -webkit-transform: rotate(214.2deg);
+          transform: rotate(214.2deg);
+}
+button.percent-48:after {
+  -webkit-transform: rotate(217.8deg);
+          transform: rotate(217.8deg);
+}
+button.percent-49:after {
+  -webkit-transform: rotate(221.4deg);
+          transform: rotate(221.4deg);
+}
+button.percent-50:after {
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+button.percent-51:after {
+  -webkit-transform: rotate(228.6deg);
+          transform: rotate(228.6deg);
+}
+button.percent-52:after {
+  -webkit-transform: rotate(232.2deg);
+          transform: rotate(232.2deg);
+}
+button.percent-53:after {
+  -webkit-transform: rotate(235.8deg);
+          transform: rotate(235.8deg);
+}
+button.percent-54:after {
+  -webkit-transform: rotate(239.4deg);
+          transform: rotate(239.4deg);
+}
+button.percent-55:after {
+  -webkit-transform: rotate(243deg);
+          transform: rotate(243deg);
+}
+button.percent-56:after {
+  -webkit-transform: rotate(246.6deg);
+          transform: rotate(246.6deg);
+}
+button.percent-57:after {
+  -webkit-transform: rotate(250.2deg);
+          transform: rotate(250.2deg);
+}
+button.percent-58:after {
+  -webkit-transform: rotate(253.8deg);
+          transform: rotate(253.8deg);
+}
+button.percent-59:after {
+  -webkit-transform: rotate(257.4deg);
+          transform: rotate(257.4deg);
+}
+button.percent-60:after {
+  -webkit-transform: rotate(261deg);
+          transform: rotate(261deg);
+}
+button.percent-61:after {
+  -webkit-transform: rotate(264.6deg);
+          transform: rotate(264.6deg);
+}
+button.percent-62:after {
+  -webkit-transform: rotate(268.2deg);
+          transform: rotate(268.2deg);
+}
+button.percent-63:after {
+  -webkit-transform: rotate(271.8deg);
+          transform: rotate(271.8deg);
+}
+button.percent-64:after {
+  -webkit-transform: rotate(275.4deg);
+          transform: rotate(275.4deg);
+}
+button.percent-65:after {
+  -webkit-transform: rotate(279deg);
+          transform: rotate(279deg);
+}
+button.percent-66:after {
+  -webkit-transform: rotate(282.6deg);
+          transform: rotate(282.6deg);
+}
+button.percent-67:after {
+  -webkit-transform: rotate(286.2deg);
+          transform: rotate(286.2deg);
+}
+button.percent-68:after {
+  -webkit-transform: rotate(289.8deg);
+          transform: rotate(289.8deg);
+}
+button.percent-69:after {
+  -webkit-transform: rotate(293.4deg);
+          transform: rotate(293.4deg);
+}
+button.percent-70:after {
+  -webkit-transform: rotate(297deg);
+          transform: rotate(297deg);
+}
+button.percent-71:after {
+  -webkit-transform: rotate(300.6deg);
+          transform: rotate(300.6deg);
+}
+button.percent-72:after {
+  -webkit-transform: rotate(304.2deg);
+          transform: rotate(304.2deg);
+}
+button.percent-73:after {
+  -webkit-transform: rotate(307.8deg);
+          transform: rotate(307.8deg);
+}
+button.percent-74:after {
+  -webkit-transform: rotate(311.4deg);
+          transform: rotate(311.4deg);
+}
+button.percent-75:after {
+  -webkit-transform: rotate(315deg);
+          transform: rotate(315deg);
+}
+button.percent-76:after {
+  -webkit-transform: rotate(318.6deg);
+          transform: rotate(318.6deg);
+}
+button.percent-77:after {
+  -webkit-transform: rotate(322.2deg);
+          transform: rotate(322.2deg);
+}
+button.percent-78:after {
+  -webkit-transform: rotate(325.8deg);
+          transform: rotate(325.8deg);
+}
+button.percent-79:after {
+  -webkit-transform: rotate(329.4deg);
+          transform: rotate(329.4deg);
+}
+button.percent-80:after {
+  -webkit-transform: rotate(333deg);
+          transform: rotate(333deg);
+}
+button.percent-81:after {
+  -webkit-transform: rotate(336.6deg);
+          transform: rotate(336.6deg);
+}
+button.percent-82:after {
+  -webkit-transform: rotate(340.2deg);
+          transform: rotate(340.2deg);
+}
+button.percent-83:after {
+  -webkit-transform: rotate(343.8deg);
+          transform: rotate(343.8deg);
+}
+button.percent-84:after {
+  -webkit-transform: rotate(347.4deg);
+          transform: rotate(347.4deg);
+}
+button.percent-85:after {
+  -webkit-transform: rotate(351deg);
+          transform: rotate(351deg);
+}
+button.percent-86:after {
+  -webkit-transform: rotate(354.6deg);
+          transform: rotate(354.6deg);
+}
+button.percent-87:after {
+  -webkit-transform: rotate(358.2deg);
+          transform: rotate(358.2deg);
+}
+button.percent-88:after {
+  -webkit-transform: rotate(361.8deg);
+          transform: rotate(361.8deg);
+}
+button.percent-89:after {
+  -webkit-transform: rotate(365.4deg);
+          transform: rotate(365.4deg);
+}
+button.percent-90:after {
+  -webkit-transform: rotate(369deg);
+          transform: rotate(369deg);
+}
+button.percent-91:after {
+  -webkit-transform: rotate(372.6deg);
+          transform: rotate(372.6deg);
+}
+button.percent-92:after {
+  -webkit-transform: rotate(376.2deg);
+          transform: rotate(376.2deg);
+}
+button.percent-93:after {
+  -webkit-transform: rotate(379.8deg);
+          transform: rotate(379.8deg);
+}
+button.percent-94:after {
+  -webkit-transform: rotate(383.4deg);
+          transform: rotate(383.4deg);
+}
+button.percent-95:after {
+  -webkit-transform: rotate(387deg);
+          transform: rotate(387deg);
+}
+button.percent-96:after {
+  -webkit-transform: rotate(390.6deg);
+          transform: rotate(390.6deg);
+}
+button.percent-97:after {
+  -webkit-transform: rotate(394.2deg);
+          transform: rotate(394.2deg);
+}
+button.percent-98:after {
+  -webkit-transform: rotate(397.8deg);
+          transform: rotate(397.8deg);
+}
+button.percent-99:after {
+  -webkit-transform: rotate(401.4deg);
+          transform: rotate(401.4deg);
+}
+button.percent-100:after {
+  -webkit-transform: rotate(405deg);
+          transform: rotate(405deg);
+}
+button.finished {
+  background-color: #1e3459;
+  width: 200px;
+  border-radius: 10px;
+  color: #fff;
+}
+button.finished:before {
+  font-size: 28px;
+  content: "✓";
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
+          animation: dropDown 0.3s 1 cubic-bezier(0.64, 0.57, 0.67, 3);
+}
+
+@-webkit-keyframes dropDown {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes dropDown {
+  0% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
